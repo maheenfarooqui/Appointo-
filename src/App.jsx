@@ -1,23 +1,19 @@
-import './App.css'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Auth from './pages/Auth';
+import { useAuth } from './context/AuthContext';
 
 function App() {
-  
+  const { user } = useAuth();
 
   return (
-    <>
-     <div className="flex flex-col items-center justify-center h-screen bg-primary">
-      <h1 className="text-4xl font-bold text-white mb-4">
-        Appointo is Live! 🚀
-      </h1>
-      <button className="bg-secondary hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-lg shadow-lg transition-all">
-        Test Tailwind Button
-      </button>
-      <div className="mt-4 p-4 bg-success text-white rounded">
-        Confirmed Badge (Emerald)
-      </div>
-    </div>  
-    </>
-  )
+    <Router>
+      <Routes>
+        <Route path="/auth" element={!user ? <Auth /> : <Navigate to="/dashboard" />} />
+        <Route path="/dashboard" element={user ? <div className="p-10 text-white text-3xl">Dashboard (Coming Soon)</div> : <Navigate to="/auth" />} />
+        <Route path="/" element={<Navigate to="/auth" />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
