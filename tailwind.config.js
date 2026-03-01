@@ -4,15 +4,16 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  theme: {
-    extend: {
-      colors: {
-        primary: "#1E293B",    // Royal Indigo
-        secondary: "#3B82F6",  // Electric Blue
-        success: "#10B981",    // Emerald
-        surface: "#FFFFFF",    // White
-      },
+ // tailwind.config.js
+theme: {
+  extend: {
+    colors: {
+      primary: "#00796B",    // Deep Teal
+      accent: "#80CBC4",     // Mint Green
+      bgLight: "#F5F5F5",    // Light Grey
+      surface: "#FFFFFF",    // Pure White
     },
   },
+},
   plugins: [],
 }

@@ -1,14 +1,9 @@
 @import "tailwindcss";
-
-/* Aapki custom config ko v4 mein connect karne ke liye */
 @config "../tailwind.config.js";
 
 @layer base {
   body {
-    @apply bg-primary text-slate-100 antialiased min-h-screen;
+    /* Purana dark color hata kar ye likho */
+    @apply bg-bgLight text-slate-800 antialiased min-h-screen font-sans;
   }
-}
-
-.app-card {
-  @apply bg-surface text-primary rounded-xl shadow-lg p-6;
 }
